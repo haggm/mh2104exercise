@@ -1,0 +1,27 @@
+HKCR
+{
+	mhPolicy.1 = s 'mhPolicy class'
+	{
+		CLSID = s '{33ab6359-e350-4d37-a32a-2cc107b02421}'
+	}
+	mhPolicy = s 'mhPolicy class'
+	{		
+		CurVer = s 'mhPolicy.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {33ab6359-e350-4d37-a32a-2cc107b02421} = s 'mhPolicy class'
+		{
+			ProgID = s 'mhPolicy.1'
+			VersionIndependentProgID = s 'mhPolicy'
+			ForceRemove Programmable
+			LocalServer32 = s '%MODULE%'
+			{
+				val ServerExecutable = s '%MODULE_RAW%'
+			}
+			val AppID = s '%APPID%'
+			TypeLib = s '{82b362dd-c15d-446f-a929-fa1aa44531cb}'
+			Version = s '1.0'
+		}
+	}
+}

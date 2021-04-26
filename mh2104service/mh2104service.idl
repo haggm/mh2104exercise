@@ -1,0 +1,76 @@
+// mh2104service.idl : IDL source for mh2104service
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (mh2104service.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(f4a92b01-c0a5-45ec-93c4-674b4a0b4121),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface ImhReboot : IDispatch
+{
+	[id(1)] HRESULT DoReboot();
+};
+[
+	object,
+	uuid(a8e3b238-b997-475e-8cff-ca0f0c9da59c),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface ImhPolicy : IDispatch
+{
+	[id(1)] HRESULT ClearCameraPolicy();
+	[id(2)] HRESULT SetCameraPolicy([in] LONG lAllowCamera);
+	[id(3)] HRESULT ClearPasswordPolicy();
+	[id(4)] HRESULT SetPasswordPolicy([in] LONG lAllowSimpleDevicePassword, [in] LONG lAlphanumericDevicePasswordRequired, [in] LONG lDevicePasswordEnabled, [in] LONG lMinDevicePasswordComplexCharacters, [in] LONG lMinDevicePasswordLength);
+};
+[
+	object,
+	uuid(81f513b3-a1ef-4570-a3c5-601482f09021),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface ImhComputerInfo : IDispatch
+{
+	[id(1)] HRESULT GetInfo([out] BSTR* str);
+};
+[
+	uuid(82b362dd-c15d-446f-a929-fa1aa44531cb),
+	version(1.0),
+]
+library mh2104serviceLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(1280c50b-536f-4a45-9527-f2807358eca5)
+	]
+	coclass mhReboot
+	{
+		[default] interface ImhReboot;
+	};
+	[
+		uuid(33ab6359-e350-4d37-a32a-2cc107b02421)
+	]
+	coclass mhPolicy
+	{
+		[default] interface ImhPolicy;
+	};
+	[
+		uuid(77136b31-f3e9-4153-874b-206aa20245a2)
+	]
+	coclass mhComputerInfo
+	{
+		[default] interface ImhComputerInfo;
+	};
+};
+
+import "shobjidl.idl";

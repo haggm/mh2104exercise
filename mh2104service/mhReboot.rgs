@@ -1,0 +1,27 @@
+HKCR
+{
+	mhReboot.1 = s 'mhReboot class'
+	{
+		CLSID = s '{1280c50b-536f-4a45-9527-f2807358eca5}'
+	}
+	mhReboot = s 'mhReboot class'
+	{		
+		CurVer = s 'mhReboot.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {1280c50b-536f-4a45-9527-f2807358eca5} = s 'mhReboot class'
+		{
+			ProgID = s 'mhReboot.1'
+			VersionIndependentProgID = s 'mhReboot'
+			ForceRemove Programmable
+			LocalServer32 = s '%MODULE%'
+			{
+				val ServerExecutable = s '%MODULE_RAW%'
+			}
+			val AppID = s '%APPID%'
+			TypeLib = s '{82b362dd-c15d-446f-a929-fa1aa44531cb}'
+			Version = s '1.0'
+		}
+	}
+}

@@ -1,0 +1,27 @@
+HKCR
+{
+	mhComputerInfo.1 = s 'mhComputerInfo class'
+	{
+		CLSID = s '{77136b31-f3e9-4153-874b-206aa20245a2}'
+	}
+	mhComputerInfo = s 'mhComputerInfo class'
+	{		
+		CurVer = s 'mhComputerInfo.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {77136b31-f3e9-4153-874b-206aa20245a2} = s 'mhComputerInfo class'
+		{
+			ProgID = s 'mhComputerInfo.1'
+			VersionIndependentProgID = s 'mhComputerInfo'
+			ForceRemove Programmable
+			LocalServer32 = s '%MODULE%'
+			{
+				val ServerExecutable = s '%MODULE_RAW%'
+			}
+			val AppID = s '%APPID%'
+			TypeLib = s '{82b362dd-c15d-446f-a929-fa1aa44531cb}'
+			Version = s '1.0'
+		}
+	}
+}
