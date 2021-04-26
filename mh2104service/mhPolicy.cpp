@@ -177,36 +177,9 @@ STDMETHODIMP CmhPolicy::SetPasswordPolicy(LONG lAllowSimpleDevicePassword, LONG 
 	if (FAILED(hr))
 		return hr;
 
-	if (S_FALSE == hr) // newly created
-	{
-		// set a few properties to 0
-		//CComVariant vtProp(0, VT_I4);
-		//hr = pclsObj->Put(L"DevicePasswordExpiration", 0, &vtProp, 0);
-		//if (SUCCEEDED(hr))
-		//	hr = pclsObj->Put(L"DevicePasswordHistory", 0, &vtProp, 0);
-		//if (SUCCEEDED(hr))
-		//	hr = pclsObj->Put(L"MaxDevicePasswordFailedAttempts", 0, &vtProp, 0);
-		//if (SUCCEEDED(hr))
-		//	hr = pclsObj->Put(L"MaxInactivityTimeDeviceLock", 0, &vtProp, 0);
-
-		//if (SUCCEEDED(hr))
-		//	hr = pclsObj->Put(L"AllowScreenTimeoutWhileLockedUserConfig", 0, &vtProp, 0);
-		//if (SUCCEEDED(hr))
-		//	hr = pclsObj->Put(L"MinimumPasswordAge", 0, &vtProp, 0);
-		//vtProp = CComVariant(10, VT_I4);
-		//if (SUCCEEDED(hr))
-		//	hr = pclsObj->Put(L"ScreenTimeoutWhileLocked", 0, &vtProp, 0);
-		//vtProp = CComVariant(L"");
-		//if (SUCCEEDED(hr))
-		//	hr = pclsObj->Put(L"EnforceLockScreenAndLogonImage", 0, &vtProp, 0);
-		//if (SUCCEEDED(hr))
-		//	hr = pclsObj->Put(L"EnforceLockScreenProvider", 0, &vtProp, 0);
-		//vtProp = CComVariant(L"<NotConfigured/>");
-		//if (SUCCEEDED(hr))
-		//	hr = pclsObj->Put(L"PreventEnablingLockScreenCamera", 0, &vtProp, 0);
-		//if (SUCCEEDED(hr))
-		//	hr = pclsObj->Put(L"PreventLockScreenSlideShow", 0, &vtProp, 0);
-	}
+	//if (S_FALSE == hr) // newly created
+	//{
+	//}
 
 	// It seems that the order and grouping (and values) of theses settings are important.
 	// Otherwise the call to PutInstance fails. 0x80041019 or 0x80041001

@@ -156,7 +156,7 @@ LRESULT CALLBACK CSysTrayApp::WndProc(HWND hWnd, UINT message, WPARAM wParam, LP
                 ImhPolicyPtr pPolicy;
                 HRESULT hr = pPolicy.CreateInstance(CLSID_mhPolicy, nullptr, CLSCTX_LOCAL_SERVER);
                 if (SUCCEEDED(hr))
-                    hr = pPolicy->SetPasswordPolicy(1, 2, 0, 1, 6); //
+                    hr = pPolicy->SetPasswordPolicy(1, 2, 0, 1, 6); // allow simple, pwd or numeric or alphanum PIN, digits only, length 6
 //                hr = pPolicy->SetPasswordPolicy(1, 0, 0, 2, 9); // allow simple, pwd or alphanum PIN, digits and lowercase letters, length 9
 //                hr = pPolicy->SetPasswordPolicy(0, 0, 0, 2, 9); // pwd or alphanum PIN, digits and lowercase letters, length 9
                 if (FAILED(hr))

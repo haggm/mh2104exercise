@@ -31,12 +31,13 @@ Displays a dialog box for confirmation before initiating a reboot.
 * Set AllowCamera = 0
 * Set AllowCamera = 1
 * Clear Password Policy
-* Set Password Policy Variant 1
-* Set Password Policy Variant 2
-* Set Password Policy Variant 3  
-The password policies above are three hardcoded variants for testing purposes.
-Check the result afterwards by choosing *List info...*
+* Set Password Policy Variant 1 (same as without policy)
+* Set Password Policy Variant 2 (allow simple, pwd or numeric or alphanum PIN, digits only, length 6)
+* Set Password Policy Variant 3 (allow simple, pwd or num PIN, digits only, length 7)  
+The password policies above are hardcoded combinations for testing purposes.
+It is possible to check the result afterwards by choosing *List info...*
 ## Known issues
 * It is possible to start several instances of the systray application in the same user session. Only one is accessible from the icon.
 * Installation program (MSI Installer) is missing. It should install and register the service and install the systray app for All users or Current user and add it to startup at login.
 * The service logs errors in the event log generic information events. It would be better to make customized event ids / messages.
+* The program is only compiled and tested in x64 mode.
