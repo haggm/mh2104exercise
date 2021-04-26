@@ -25,7 +25,11 @@ private:
 	static constexpr UINT WMAPP_NOTIFYCALLBACK = WM_APP + 1;
 
 	// Use a guid to uniquely identify our icon
+#ifdef DEBUG
 	class __declspec(uuid("23E65334-8D70-4EF1-8018-CBC7AD62D584")) SystrayIcon;
+#else
+	class __declspec(uuid("A587FA44-7B68-4094-A222-D51C06108C4A")) SystrayIcon;
+#endif
 };
 
 extern CSysTrayApp g_theSysTrayApp;

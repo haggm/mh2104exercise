@@ -18,3 +18,4 @@
 #include <comdef.h>
 #include <comip.h>
 #include <string>
+#include <assert.h>
