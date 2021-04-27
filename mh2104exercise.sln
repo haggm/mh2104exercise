@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "mh2104installer", "mh2104installer\mh2104installer.vdproj", "{FE9B1101-AC08-4FE2-9D3D-BA275C30E256}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -39,6 +41,11 @@ Global
 		{17FD60AF-9C35-45B2-BAD0-D9608CD9134E}.Release|x64.Build.0 = Release|x64
 		{17FD60AF-9C35-45B2-BAD0-D9608CD9134E}.Release|x86.ActiveCfg = Release|Win32
 		{17FD60AF-9C35-45B2-BAD0-D9608CD9134E}.Release|x86.Build.0 = Release|Win32
+		{FE9B1101-AC08-4FE2-9D3D-BA275C30E256}.Debug|x64.ActiveCfg = Debug
+		{FE9B1101-AC08-4FE2-9D3D-BA275C30E256}.Debug|x86.ActiveCfg = Debug
+		{FE9B1101-AC08-4FE2-9D3D-BA275C30E256}.Release|x64.ActiveCfg = Release
+		{FE9B1101-AC08-4FE2-9D3D-BA275C30E256}.Release|x64.Build.0 = Release
+		{FE9B1101-AC08-4FE2-9D3D-BA275C30E256}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

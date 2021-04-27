@@ -227,10 +227,10 @@ LRESULT CALLBACK CSysTrayApp::WndProc(HWND hWnd, UINT message, WPARAM wParam, LP
         switch (LOWORD(lParam))
         {
         case NIN_BALLOONTIMEOUT:
-            RestoreTooltip();
+            RestoreTooltip(hWnd);
             break;
         case NIN_BALLOONUSERCLICK:
-            RestoreTooltip();
+            RestoreTooltip(hWnd);
             break;
         case WM_CONTEXTMENU:
         {
@@ -241,7 +241,7 @@ LRESULT CALLBACK CSysTrayApp::WndProc(HWND hWnd, UINT message, WPARAM wParam, LP
         }
         break;
     case WM_DESTROY:
-        DeleteNotificationIcon();
+        DeleteNotificationIcon(hWnd);
         ::CoUninitialize();
         PostQuitMessage(0);
         break;
@@ -252,12 +252,13 @@ LRESULT CALLBACK CSysTrayApp::WndProc(HWND hWnd, UINT message, WPARAM wParam, LP
 }
 
 
-BOOL CSysTrayApp::RestoreTooltip()
+BOOL CSysTrayApp::RestoreTooltip(HWND hwnd)
 {
     // After the balloon is dismissed, restore the tooltip.
     NOTIFYICONDATA nid = { sizeof(nid) };
-    nid.uFlags = NIF_SHOWTIP | NIF_GUID;
-    nid.guidItem = __uuidof(SystrayIcon);
+    nid.uFlags = NIF_SHOWTIP;
+    nid.hWnd = hwnd;
+    nid.uID = SYSTRAYICONID;
     return Shell_NotifyIcon(NIM_MODIFY, &nid);
 }
 
@@ -313,9 +314,8 @@ BOOL CSysTrayApp::AddNotificationIcon(HWND hwnd)
     NOTIFYICONDATA nid = { sizeof(nid) };
     nid.hWnd = hwnd;
     // add the icon, setting the icon, tooltip, and callback message.
-    // the icon will be identified with the GUID
-    nid.uFlags = NIF_ICON | NIF_TIP | NIF_MESSAGE | NIF_SHOWTIP | NIF_GUID;
-    nid.guidItem = __uuidof(SystrayIcon);
+    nid.uFlags = NIF_ICON | NIF_TIP | NIF_MESSAGE | NIF_SHOWTIP;
+    nid.uID = SYSTRAYICONID;
     nid.uCallbackMessage = WMAPP_NOTIFYCALLBACK;
     LoadIconMetric(hInst, MAKEINTRESOURCE(IDI_MH2104SYSTRAY), LIM_SMALL, &nid.hIcon);
     LoadString(hInst, IDS_APP_TITLE, nid.szTip, ARRAYSIZE(nid.szTip));
@@ -327,11 +327,12 @@ BOOL CSysTrayApp::AddNotificationIcon(HWND hwnd)
 }
 
 
-BOOL CSysTrayApp::DeleteNotificationIcon()
+BOOL CSysTrayApp::DeleteNotificationIcon(HWND hwnd)
 {
     NOTIFYICONDATA nid = { sizeof(nid) };
-    nid.uFlags = NIF_GUID;
-    nid.guidItem = __uuidof(SystrayIcon);
+    nid.uFlags = 0;
+    nid.hWnd = hwnd;
+    nid.uID = SYSTRAYICONID;
     return Shell_NotifyIcon(NIM_DELETE, &nid);
 }
 

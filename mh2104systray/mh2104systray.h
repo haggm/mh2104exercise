@@ -15,21 +15,15 @@ private:
 	static INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 	void                ShowContextMenu(HWND hwnd, POINT pt);
 	BOOL                AddNotificationIcon(HWND hwnd);
-	static BOOL         DeleteNotificationIcon();
-	static BOOL         RestoreTooltip();
+	static BOOL         DeleteNotificationIcon(HWND hwnd);
+	static BOOL         RestoreTooltip(HWND hwnd);
 
 	HINSTANCE hInst;                                // current instance
 	WCHAR szTitle[MAX_LOADSTRING];                  // The title bar text
 	WCHAR szWindowClass[MAX_LOADSTRING];            // the main window class name
 
 	static constexpr UINT WMAPP_NOTIFYCALLBACK = WM_APP + 1;
-
-	// Use a guid to uniquely identify our icon
-#ifdef DEBUG
-	class __declspec(uuid("23E65334-8D70-4EF1-8018-CBC7AD62D584")) SystrayIcon;
-#else
-	class __declspec(uuid("A587FA44-7B68-4094-A222-D51C06108C4A")) SystrayIcon;
-#endif
+	static constexpr UINT SYSTRAYICONID = 1;
 };
 
 extern CSysTrayApp g_theSysTrayApp;
